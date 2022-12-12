@@ -13,7 +13,7 @@ export default function Play({ tv }) {
     const location = useLocation()
     const params = useParams()
     const [data, setData] = useState(location?.state?.item)
-    const [id, setId] = useState(params?.id)
+    // const [id, setId] = useState(params?.id)
     const [season, setSeason] = useState(params?.s)
     const [episode, setEpisode] = useState(params?.e)
     const [recomendation, setRecomendation] = useState()
@@ -25,7 +25,7 @@ export default function Play({ tv }) {
         try {
             var _id = params?.id;
             setLoading(true)
-            setId(_id)
+            // setId(_id)
             setSeason(params?.s)
             setEpisode(params?.e)
             var recRes;
@@ -58,6 +58,7 @@ export default function Play({ tv }) {
     }
 
     useEffect(() => {
+        // eslint-disable-next-line
         _init()
     }, [params])
 
@@ -70,10 +71,10 @@ export default function Play({ tv }) {
         <main>
             <Header tv={tv} />
             <main className='vh-100 main' style={{ background: "linear-gradient(var(--primary),rgba(0,0,0,0.7),var(--primary)), url(" + imageUrl + 'original' + data.backdrop_path + ")", ...styles.carouselImg }}>
-                {/* <iframe className='iframe' allowFullScreen src={url}></iframe> */}
+                <iframe className='iframe' allowFullScreen src={url}></iframe>
                 <div className='d-flex p-3'>
                     <div className='d-none d-md-block'>
-                        <img src={imageUrl + "w300" + data.poster_path} className="poster_img sticky-top" />
+                        <img src={imageUrl + "w300" + data.poster_path} className="poster_img sticky-top" alt="img" />
                     </div>
                     <div className='details'>
                         <b className='title d-block'>{data.title || data.name}</b>
@@ -115,7 +116,7 @@ export default function Play({ tv }) {
                     </div>
                 </div>
             </main>
-        </main>
+        </main >
     )
 }
 const styles = {
