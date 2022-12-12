@@ -23,6 +23,7 @@ export default function SeasonsAndEpisodes({ data, season, episode }) {
 
     useEffect(() => {
         _init()
+        // eslint-disable-next-line
     }, [season])
     return (
         <div>
@@ -46,7 +47,7 @@ export default function SeasonsAndEpisodes({ data, season, episode }) {
                     {
                         episodes?.map((e, i) => (
                             <Link to={"/tv/play/" + data.id + "/" + season + "/" + e.episode_number} key={i} className="ep-link"
-                                style={episode == e.episode_number ? { backgroundColor: "var(--tertiory)" } : {}}
+                                style={episode === e.episode_number ? { backgroundColor: "var(--tertiory)" } : {}}
                             >
                                 <small className='text-muted d-block'>Episode {e.episode_number} </small>
                                 <b>{e.name}</b>

@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Spinner } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router-dom';
 import Banner from '../../components/Banner';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Loading from '../../components/Loading';
-import { _getPopular, _getTopRated, _getHindiMovies, _discoverMore, _getPopularTv, _getTopRatedTv, _getHindiTv, _discoverMoreTv } from "../../utils/api.service"
-import { imageUrl, logo } from '../../utils/constants';
+import { _getPopular, _getTopRated, _getHindiMovies, _getPopularTv, _getTopRatedTv, _getHindiTv } from "../../utils/api.service"
+import { imageUrl } from '../../utils/constants';
 import "./style.css"
 import { BsChevronRight } from 'react-icons/bs'
 
 export default function Home({ tv }) {
     const [loading, setLoading] = useState(true)
     const [data, setData] = useState()
-    const [res, setRes] = useState({})
+    // const [res, setRes] = useState({})
     // const [isTv, setIsTv] = useState(tv)
 
     const _init = async () => {
@@ -41,7 +40,7 @@ export default function Home({ tv }) {
 
 
             setData({ carousel, popular, top, hindi })
-            setRes({ popular: popularRes, top: topRatetRes, hindi: hindiRes })
+            // setRes({ popular: popularRes, top: topRatetRes, hindi: hindiRes })
             setLoading(false)
             console.log(data);
         } catch (error) {
@@ -52,6 +51,7 @@ export default function Home({ tv }) {
 
     useEffect(() => {
         _init()
+        // eslint-disable-next-line
     }, [tv])
 
     if (loading) {
@@ -81,7 +81,7 @@ export default function Home({ tv }) {
                                     <b className='display-4 bold'>{o.title || o.name}</b>
                                     <div className='underline bg-dark'></div>
                                     <div className='d-flex'>
-                                        <img src={imageUrl + 'w300' + o.poster_path} className="poster" />
+                                        <img src={imageUrl + 'w300' + o.poster_path} className="poster" alt="poster" />
                                         <div className='desc'>
                                             <div>
                                                 <b className='text-white'>Rating : {o.vote_average} / 10</b><br />
@@ -93,10 +93,10 @@ export default function Home({ tv }) {
                                     </div>
                                 </div>
                             </div>
-                        </Carousel.Item>
+                        </Carousel.Item >
                     ))
                 }
-            </Carousel>
+            </Carousel >
             <hr className='text-muted' />
             {/* popular*/}
             <div>
@@ -143,7 +143,7 @@ export default function Home({ tv }) {
                 <hr className='text-muted' />
             </div>
             <Footer />
-        </main>
+        </main >
     )
 }
 

@@ -10,7 +10,7 @@ export default function Header({ tv }) {
         <header className='header'>
             <div className='d-flex align-items-center'>
                 <Link to="/">
-                    <img src={logo} className='logo' />
+                    <img src={logo} className='logo' alt='logo' />
                 </Link>
                 <Link className='text-decoration-none text-white d-none d-md-block'>
                     <b>Browse</b>
