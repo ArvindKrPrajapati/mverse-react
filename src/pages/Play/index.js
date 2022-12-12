@@ -58,8 +58,8 @@ export default function Play({ tv }) {
     }
 
     useEffect(() => {
-        // eslint-disable-next-line
         _init()
+        // eslint-disable-next-line
     }, [params])
 
 
@@ -71,7 +71,7 @@ export default function Play({ tv }) {
         <main>
             <Header tv={tv} />
             <main className='vh-100 main' style={{ background: "linear-gradient(var(--primary),rgba(0,0,0,0.7),var(--primary)), url(" + imageUrl + 'original' + data.backdrop_path + ")", ...styles.carouselImg }}>
-                <iframe className='iframe' allowFullScreen src={url}></iframe>
+                <iframe title={url} className='iframe' allowFullScreen src={url}></iframe>
                 <div className='d-flex p-3'>
                     <div className='d-none d-md-block'>
                         <img src={imageUrl + "w300" + data.poster_path} className="poster_img sticky-top" alt="img" />
