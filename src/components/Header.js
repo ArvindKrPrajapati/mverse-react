@@ -5,7 +5,7 @@ import "./header.css"
 import { BsChevronRight, BsCast } from 'react-icons/bs'
 import { BiMoviePlay } from 'react-icons/bi'
 
-export default function Header({ tv }) {
+export default function Header({ tv, focus, onChange }) {
     return (
         <header className='header'>
             <div className='d-flex align-items-center'>
@@ -18,7 +18,9 @@ export default function Header({ tv }) {
                 </Link>
             </div>
             <div className='d-none d-md-flex align-items-center'>
-                <input type="search" className='input d-none d-md-block' placeholder='search movies' />
+                <Link className='input-link' to="/search" state={{ tv }}>
+                    <input type="search" className='input d-none d-md-block' placeholder='search movies' autoFocus={focus} onChange={(e) => { onChange && onChange(e) }} />
+                </Link>
                 <Link to="/" className='header-btn' style={!tv ? { backgroundColor: "var(--tertiory)" } : {}}>
                     <BiMoviePlay />&nbsp;
                     <b>Movies</b>

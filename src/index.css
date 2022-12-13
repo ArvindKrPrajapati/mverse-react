@@ -1,6 +1,6 @@
 :root {
   --primary: rgb(19, 23, 38);
-  --secondary: rgb(20, 26, 41);
+  --secondary: rgb(22, 29, 46);
   --tertiory: rgb(240, 95, 11);
   --tertiory-light: rgb(232, 111, 41);
 }
@@ -45,6 +45,40 @@ code {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: white;
+}
+
+/* search */
+.search-result {
+  display: flex;
+  margin-top: 15px;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--secondary);
+}
+
+.overview {
+  overflow: hidden;
+  font-size: 1rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+.search-img {
+  width: 150px;
+  border-radius: 5px;
+}
+
+/* end */
+@media screen and (max-width:600px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .search-img {
+    width: calc(30vw - 5px);
+  }
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */

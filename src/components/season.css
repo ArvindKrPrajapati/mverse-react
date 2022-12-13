@@ -40,3 +40,9 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
 }
+
+@media screen and (max-width:600px) {
+    .ep-link {
+        width: 100%;
+    }
+}

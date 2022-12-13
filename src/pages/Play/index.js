@@ -8,6 +8,8 @@ import Banner from '../../components/Banner'
 import { Spinner } from 'react-bootstrap'
 import SeasonsAndEpisodes from '../../components/SeasonsAndEpisodes'
 import Loading from '../../components/Loading'
+import Player from '../../components/Player'
+import Footer from '../../components/Footer'
 
 export default function Play({ tv }) {
     const location = useLocation()
@@ -19,7 +21,6 @@ export default function Play({ tv }) {
     const [recomendation, setRecomendation] = useState()
     const [similar, setSimilar] = useState()
     const [loading, setLoading] = useState(true)
-    const [url, setUrl] = useState()
 
     const _init = async () => {
         try {
@@ -33,13 +34,11 @@ export default function Play({ tv }) {
             if (tv) {
                 let res = await _getTvDetails(_id)
                 setData(res)
-                findLinks(res)
                 recRes = await _getRecommendationsTv(_id, 1)
                 simRes = await _getSimilarTv(_id, 1)
             } else {
                 let res = await _getMovieDetails(_id)
                 setData(res)
-                findLinks(res)
                 recRes = await _getRecommendations(_id, 1)
                 simRes = await _getSimilar(_id, 1)
             }
@@ -50,11 +49,6 @@ export default function Play({ tv }) {
         } catch (error) {
             console.log("details screen", error);
         }
-    }
-
-    const findLinks = (res) => {
-        const _url = "http://database.gdriveplayer.us/player.php?imdb=" + res.imdb_id
-        setUrl(_url)
     }
 
     useEffect(() => {
@@ -68,13 +62,13 @@ export default function Play({ tv }) {
     }
 
     return (
-        <main>
+        <main className='vh-100 main' style={{ background: "linear-gradient(var(--primary),rgba(0,0,0,0.7),var(--primary)), url(" + imageUrl + 'original' + data.backdrop_path + ")", ...styles.carouselImg }}>
             <Header tv={tv} />
-            <main className='vh-100 main' style={{ background: "linear-gradient(var(--primary),rgba(0,0,0,0.7),var(--primary)), url(" + imageUrl + 'original' + data.backdrop_path + ")", ...styles.carouselImg }}>
-                <iframe title={url} className='iframe' allowFullScreen src={url}></iframe>
+            <main className="inside-main">
+                <Player data={data} tv={tv} season={season} episode={episode} />
                 <div className='d-flex p-3'>
                     <div className='d-none d-md-block'>
-                        <img src={imageUrl + "w300" + data.poster_path} className="poster_img sticky-top" alt="img" />
+                        <img src={imageUrl + "w300" + data.poster_path} className="poster_img" alt="img" />
                     </div>
                     <div className='details'>
                         <b className='title d-block'>{data.title || data.name}</b>
@@ -115,8 +109,9 @@ export default function Play({ tv }) {
                         }
                     </div>
                 </div>
+                <Footer />
             </main>
-        </main >
+        </main>
     )
 }
 const styles = {
