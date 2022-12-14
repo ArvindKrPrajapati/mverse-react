@@ -100,13 +100,13 @@ export default function Cateogory({ tv }) {
                             <Pagination.Prev />
                             {Number(params?.page) !== 1 && (
                                 <Pagination.Item>
-                                    <Link to={tv ? `/tv/${params?.cat}/${Number(params?.page) - 1}` : `/movie/${params?.cat}/${Number(params?.page) + 1}`} className='text-decoration-none'>
+                                    <Link to={tv ? `/tv/${params?.cat}/${params.id ? `${params.id}/${Number(params?.page) - 1}` : Number(params?.page) - 1}` : `/movie/${params?.cat}/${params.id ? `${params.id}/${Number(params?.page) - 1}` : Number(params?.page) - 1}`} className='text-decoration-none'>
                                         {Number(params?.page) - 1}</Link>
                                 </Pagination.Item>
                             )}
                             <Pagination.Item active={true}>{params?.page}</Pagination.Item>
                             <Pagination.Item>
-                                <Link to={tv ? `/tv/${params?.cat}/${Number(params?.page) + 1}` : `/movie/${params?.cat}/${Number(params?.page) + 1}`} className='text-decoration-none'>
+                                <Link to={tv ? `/tv/${params?.cat}/${params.id ? `${params.id}/${Number(params?.page) + 1}` : Number(params?.page) + 1}` : `/movie/${params?.cat}/${params.id ? `${params.id}/${Number(params?.page) + 1}` : Number(params?.page) + 1}`} className='text-decoration-none'>
                                     {Number(params?.page) + 1}
                                 </Link>
                             </Pagination.Item>
