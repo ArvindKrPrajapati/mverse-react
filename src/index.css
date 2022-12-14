@@ -1,8 +1,8 @@
 :root {
-  --primary: rgb(19, 23, 38);
-  --secondary: rgb(22, 29, 46);
-  --tertiory: rgb(240, 95, 11);
-  --tertiory-light: rgb(232, 111, 41);
+  --primary: #131726;
+  --secondary: #161d2e;
+  --tertiory: #f05f0b;
+  --tertiory-light: #e86f29;
 }
 
 html,
