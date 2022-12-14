@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Spinner } from 'react-bootstrap'
 import { Link, useLocation } from 'react-router-dom'
 import Header from '../../components/Header'
@@ -11,8 +11,11 @@ export default function Search() {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
     const onChange = async (e) => {
-        if (e.target.value.length === 0) return
         setSearchTerm(e.target.value)
+        if (e.target.value.length === 0) {
+            setData([])
+            return
+        }
         setLoading(true)
         var res;
         if (tv) {
@@ -24,19 +27,23 @@ export default function Search() {
         setLoading(false)
     }
 
-    const changeTye = (_tv) => {
-        setTv(_tv)
+    useEffect(() => {
         onChange({ target: { value: searchTerm } })
-    }
+        // eslint-disable-next-line
+    }, [tv])
+
     return (
         <main className='vh-100 main'>
-            <Header tv={tv} focus={true} onChange={onChange} />
+            <Header tv={tv} focus={true} onChange={onChange} searchTerm={searchTerm} />
             <main className='inside-main'>
+                <div className='sticky-header'>
+                    <input type="search" className='input d-block d-md-none' placeholder={`search ${tv ? 'tv shows' : 'movies'}`} onChange={(e) => { onChange(e) }} value={searchTerm} />
+                </div>
                 <div className='d-flex align-items-center text-white'>
                     <label for="movie">Movies</label>&nbsp;&nbsp;
-                    <input onChange={() => { changeTye(false) }} type="radio" id="movie" className='form-check-input' name='type' checked={!tv} />&nbsp;&nbsp;
+                    <input onChange={() => { setTv(false) }} type="radio" id="movie" className='form-check-input' name='type' checked={!tv} />&nbsp;&nbsp;
                     <label for="tv">Tv</label>&nbsp;&nbsp;
-                    <input onChange={() => { changeTye(true) }} type="radio" id="tv" className='form-check-input' name='type' checked={tv} />
+                    <input onChange={() => { setTv(true) }} type="radio" id="tv" className='form-check-input' name='type' checked={tv} />
                 </div>
                 {searchTerm ?
                     <h4 className='text-white'>Search : {searchTerm}</h4>

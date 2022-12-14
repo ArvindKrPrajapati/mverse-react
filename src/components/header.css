@@ -29,6 +29,7 @@
     text-decoration: none;
 }
 
+
 .header-btn:hover {
     background-color: var(--primary);
     color: gainsboro;
@@ -40,7 +41,7 @@
     border: 1px solid silver;
     padding: 8px 40px;
     color: white;
-    width: 400px;
+    width: 30vw;
     border-radius: 5px;
 }
 
@@ -51,4 +52,19 @@
 
 .logo {
     width: 130px;
+}
+
+@media screen and (max-width:767px) {
+    .header-btn {
+        background-color: inherit;
+        padding: 0px;
+    }
+
+    .header-btn:hover {
+        background-color: inherit;
+    }
+
+    .input {
+        width: 100%;
+    }
 }

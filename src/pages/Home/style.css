@@ -60,6 +60,7 @@
     overflow: auto;
     padding-right: 50px;
     padding-bottom: 20px;
+    /* scroll-snap-type: y proximity; */
 }
 
 

@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from '../pages/Home'
 import Play from "../pages/Play";
 import Search from "../pages/Search";
+import Cateogory from '../pages/Cateogory'
+
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -22,5 +24,21 @@ export const router = createBrowserRouter([
     {
         path: "/movie/play/:id",
         element: <Play tv={false} />
+    },
+    {
+        path: "/movie/:cat/:id/:page",
+        element: <Cateogory tv={false} />
+    },
+    {
+        path: "/tv/:cat/:id/:page",
+        element: <Cateogory tv={true} />
+    },
+    {
+        path: "/movie/:cat/:page",
+        element: <Cateogory tv={false} />
+    },
+    {
+        path: "/tv/:cat/:page",
+        element: <Cateogory tv={true} />
     }
 ]);

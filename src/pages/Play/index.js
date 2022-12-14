@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import Header from '../../components/Header'
 import { imageUrl } from '../../utils/constants'
 import "./style.css"
@@ -10,12 +10,13 @@ import SeasonsAndEpisodes from '../../components/SeasonsAndEpisodes'
 import Loading from '../../components/Loading'
 import Player from '../../components/Player'
 import Footer from '../../components/Footer'
+import { BsChevronRight } from 'react-icons/bs'
 
 export default function Play({ tv }) {
     const location = useLocation()
     const params = useParams()
     const [data, setData] = useState(location?.state?.item)
-    // const [id, setId] = useState(params?.id)
+    const [id, setId] = useState(params?.id)
     const [season, setSeason] = useState(params?.s)
     const [episode, setEpisode] = useState(params?.e)
     const [recomendation, setRecomendation] = useState()
@@ -26,7 +27,7 @@ export default function Play({ tv }) {
         try {
             var _id = params?.id;
             setLoading(true)
-            // setId(_id)
+            setId(_id)
             setSeason(params?.s)
             setEpisode(params?.e)
             var recRes;
@@ -82,7 +83,10 @@ export default function Play({ tv }) {
                             !loading ? (
                                 <>
                                     <div>
-                                        <h3 className='text-white'>You may also like</h3>
+                                        <Link to={tv ? '/tv/recomended/' + id + '/1' : '/movie/recomended/' + id + '/1'} className='list-title m-0'>
+                                            <h3 className='text-white'>You may also like</h3>
+                                            <BsChevronRight />
+                                        </Link>
                                         <div className='d-flex horizontal-list'>
                                             {
                                                 recomendation?.slice(0, 10)?.map((o, i) => (
@@ -93,7 +97,10 @@ export default function Play({ tv }) {
                                         <hr className='text-muted' />
                                     </div>
                                     <div>
-                                        <h3 className='text-white'>Similar </h3>
+                                        <Link to={tv ? '/tv/similar/' + id + '/1' : '/movie/similar/' + id + '/1'} className='list-title m-0'>
+                                            <h3 className='text-white'>Similar </h3>
+                                            <BsChevronRight />
+                                        </Link>
                                         <div className='d-flex horizontal-list'>
                                             {
                                                 similar?.slice(0, 10)?.map((o, i) => (
@@ -101,7 +108,6 @@ export default function Play({ tv }) {
                                                 ))
                                             }
                                         </div>
-                                        <hr className='text-muted' />
                                     </div>
                                 </>
 

@@ -7,7 +7,7 @@
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
   background: linear-gradient(10deg, var(--primary), var(--secondary));
 }
 
@@ -68,6 +68,14 @@ code {
 .search-img {
   width: 150px;
   border-radius: 5px;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0px;
+  background-color: var(--secondary);
+  z-index: 200;
+  padding: 10px;
 }
 
 /* end */

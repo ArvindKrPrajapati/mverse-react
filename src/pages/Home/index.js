@@ -97,10 +97,10 @@ export default function Home({ tv }) {
                     ))
                 }
             </Carousel >
-            <hr className='text-muted' />
+            <hr className='text-muted mt-0' />
             {/* popular*/}
             <div>
-                <Link className='list-title'>
+                <Link to={tv ? '/tv/popular/1' : '/movie/popular/1'} className='list-title'>
                     <b>Popular</b>
                     <BsChevronRight />
                 </Link>
@@ -115,7 +115,7 @@ export default function Home({ tv }) {
             </div>
             {/* top rated */}
             <div>
-                <Link className='list-title'>
+                <Link to={tv ? '/tv/top/1' : '/movie/top/1'} className='list-title'>
                     <b>Top Rated</b>
                     <BsChevronRight />
                 </Link>
@@ -129,7 +129,7 @@ export default function Home({ tv }) {
                 <hr className='text-muted' />
             </div>
             <div>
-                <Link className='list-title'>
+                <Link to={tv ? '/tv/indian/1' : '/movie/indian/1'} className='list-title'>
                     <b>Indian</b>
                     <BsChevronRight />
                 </Link>
@@ -140,7 +140,6 @@ export default function Home({ tv }) {
                         ))
                     }
                 </div>
-                <hr className='text-muted' />
             </div>
             <Footer />
         </main >
@@ -151,5 +150,7 @@ const styles = {
     carouselImg: {
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
+        backgroundPosition: "top center"
+
     }
 }

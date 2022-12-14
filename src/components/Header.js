@@ -2,32 +2,35 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { logo } from '../utils/constants'
 import "./header.css"
-import { BsChevronRight, BsCast } from 'react-icons/bs'
+import { BsChevronRight, BsCast, BsSearch } from 'react-icons/bs'
 import { BiMoviePlay } from 'react-icons/bi'
 
-export default function Header({ tv, focus, onChange }) {
+export default function Header({ tv, focus, onChange, searchTerm }) {
     return (
         <header className='header'>
             <div className='d-flex align-items-center'>
                 <Link to="/">
                     <img src={logo} className='logo' alt='logo' />
                 </Link>
-                <Link className='text-decoration-none text-white d-none d-md-block'>
-                    <b>Browse</b>
+                <Link to={tv ? '/tv/browse/1' : '/movie/browse/1'} className='text-decoration-none text-white'>
+                    <b className='d-none d-md-inline'>Browse</b>
                     <BsChevronRight />
                 </Link>
             </div>
-            <div className='d-none d-md-flex align-items-center'>
+            <div className='d-flex align-items-center'>
                 <Link className='input-link' to="/search" state={{ tv }}>
-                    <input type="search" className='input d-none d-md-block' placeholder='search movies' autoFocus={focus} onChange={(e) => { onChange && onChange(e) }} />
+                    <input type="search" className='input d-none d-md-block' placeholder='search movies' autoFocus={focus} onChange={(e) => { onChange && onChange(e) }} value={searchTerm} />
                 </Link>
-                <Link to="/" className='header-btn' style={!tv ? { backgroundColor: "var(--tertiory)" } : {}}>
+                <Link to="/" className='header-btn' style={!tv ? { color: "var(--tertiory)" } : {}}>
                     <BiMoviePlay />&nbsp;
-                    <b>Movies</b>
+                    <b className='d-none d-md-block'>Movies</b>
                 </Link>
-                <Link to="/tv" className='header-btn' style={tv ? { backgroundColor: "var(--tertiory)" } : {}}>
+                <Link to="/tv" className='header-btn' style={tv ? { color: "var(--tertiory)" } : {}}>
                     <BsCast />&nbsp;
-                    <b>Tv</b>
+                    <b className='d-none d-md-block'>Tv</b>
+                </Link>
+                <Link className='d-block d-md-none header-btn' to="/search">
+                    <BsSearch />
                 </Link>
             </div>
         </header>
