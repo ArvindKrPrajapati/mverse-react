@@ -41,7 +41,7 @@ export default function Register() {
   };
 
   return (
-    <>
+    <div id="auth">
       <div className="main">
         {error ? (
           <div
@@ -111,6 +111,6 @@ export default function Register() {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 }

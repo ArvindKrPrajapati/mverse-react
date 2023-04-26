@@ -40,7 +40,7 @@ export default function Login() {
   };
 
   return (
-    <>
+    <div id="auth">
       <div className="main">
         {error ? (
           <div
@@ -101,6 +101,6 @@ export default function Login() {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 }

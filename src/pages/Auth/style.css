@@ -1,4 +1,4 @@
-.main {
+#auth .main {
     font-family: sans-serif;
     color: whitesmoke;
     height: 100%;
@@ -7,13 +7,13 @@
 
 
 
-.link {
+#auth .link {
     color: #030804;
     font-weight: bold;
     text-decoration: none;
 }
 
-.my-form {
+#auth .my-form {
     width: 30rem;
     margin: auto;
     color: whitesmoke;
@@ -25,7 +25,7 @@
     padding: 25px 25px;
 }
 
-.my-form input {
+#auth .my-form input {
     width: 100%;
     margin: 10px 0;
     border-radius: 8px;
@@ -34,11 +34,11 @@
     border: none;
 }
 
-.my-form input:focus {
+#auth .my-form input:focus {
     outline: none;
 }
 
-.my-form button {
+#auth .my-form button {
     background-color: var(--primary);
     color: white;
     padding: 10px 20px;
@@ -54,66 +54,66 @@
     cursor: pointer;
 } */
 
-.headingsContainer {
+#auth .headingsContainer {
     text-align: center;
 }
 
-.headingsContainer p {
+#auth .headingsContainer p {
     color: gray;
 }
 
-.mainContainer {
+#auth .mainContainer {
     padding: 16px;
 }
 
-.subcontainer {
+#auth .subcontainer {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-.subcontainer a {
+#auth .subcontainer a {
     font-size: 16px;
     margin-bottom: 12px;
 }
 
-.my-form span.forgotpsd a {
+#auth .my-form span.forgotpsd a {
     float: right;
     color: whitesmoke;
     padding-top: 16px;
 }
 
-.forgotpsd a {
+#auth .forgotpsd a {
     color: rgb(74, 146, 235);
 }
 
-.forgotpsd a:link {
+#auth .forgotpsd a:link {
     text-decoration: none;
 }
 
-.register {
+#auth .register {
     color: white;
     text-align: center;
 }
 
-.register a {
+#auth .register a {
     color: rgb(74, 146, 235);
 }
 
-.register a:link {
+#auth .register a:link {
     text-decoration: none;
 }
 
 /* Media queries for the responsiveness of the page */
 @media screen and (max-width: 600px) {
-    .my-form {
+    #auth .my-form {
         width: 25rem;
     }
 }
 
 @media screen and (max-width: 400px) {
-    .my-form {
+   #auth .my-form {
         width: 20rem;
         border: none;
         width: 100%;
