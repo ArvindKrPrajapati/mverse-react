@@ -1,0 +1,33 @@
+.main {
+    position: fixed;
+    width: 100%;
+    overflow: auto;
+}
+
+.inside-main {
+    padding: 80px 3vw;
+}
+
+.poster_img {
+    width: 16vw;
+    aspect-ratio: 2/3;
+    border-radius: 5px;
+    position: sticky;
+    top: 20%;
+}
+
+.title {
+    color: white;
+    font-size: 4vw;
+}
+
+.details {
+    padding-left: 15px;
+    overflow: auto;
+}
+
+@media screen and (max-width:600px) {
+    .details {
+        padding-left: 0;
+    }
+}

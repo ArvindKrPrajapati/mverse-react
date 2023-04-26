@@ -1,0 +1,85 @@
+.carousel {
+    height: 70vh;
+}
+
+.info {
+    padding: 5vw;
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+}
+
+.poster {
+    width: 100px;
+    aspect-ratio: 3/4;
+    border-radius: 5px;
+}
+
+.bold {
+    font-weight: 500;
+    color: white;
+    transition: all .3s ease;
+}
+
+.bold:hover {
+    color: var(--tertiory);
+}
+
+.underline {
+    width: 30%;
+    height: 1px;
+    margin: 35px 0 20px 0;
+    background-color: rgb(40, 40, 40);
+}
+
+.playBtn {
+    background-color: var(--tertiory);
+    color: white;
+    padding: 8px 40px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    border: none;
+    text-decoration: none;
+    transition: all .3s ease;
+}
+
+.playBtn:hover {
+    background-color: var(--tertiory-light);
+    color: white;
+}
+
+.desc {
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* for popular */
+.horizontal-list {
+    overflow: auto;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    /* scroll-snap-type: y proximity; */
+}
+
+
+.list-title {
+    color: white;
+    font-weight: 700;
+    font-size: 1.4em;
+    margin: 10px 10px 20px 5vw;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+}
+
+.list-title:hover {
+    color: white;
+}
+
+@media screen and (max-width:600px) {
+    .carousel {
+        height: 60vh;
+    }
+}

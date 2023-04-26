@@ -1,0 +1,70 @@
+/* header */
+.header {
+    /* background-color: red; */
+    padding: 0 4vw 0 4vw;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+}
+
+.text-decoration-none {
+    text-decoration: none;
+}
+
+.header-btn {
+    color: white;
+    margin-left: 10px;
+    border-radius: 5px;
+    padding: 8px 20px;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary);
+    transition: all .3s;
+    text-decoration: none;
+}
+
+
+.header-btn:hover {
+    background-color: var(--primary);
+    color: gainsboro;
+    outline: none;
+}
+
+.input {
+    background-color: inherit;
+    border: 1px solid silver;
+    padding: 8px 40px;
+    color: white;
+    width: 30vw;
+    border-radius: 5px;
+}
+
+.input-link {
+    color: white;
+    text-decoration: none;
+}
+
+.logo {
+    width: 130px;
+}
+
+@media screen and (max-width:767px) {
+    .header-btn {
+        background-color: inherit;
+        padding: 0px;
+    }
+
+    .header-btn:hover {
+        background-color: inherit;
+    }
+
+    .input {
+        width: 100%;
+    }
+}
