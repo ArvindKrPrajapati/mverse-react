@@ -6,5 +6,5 @@ export const imageUrl = "https://image.tmdb.org/t/p/";
 export const logo = require("../assets/logo.png");
 export const mverseToken = () => localStorage.getItem("token");
 export const user = () => JSON.parse(localStorage.getItem("user"));
-export const mverseUrl = "https://mverse-api.onrender.com/v1";
+export const mverseUrl = "https://mytodo-api.cyclic.app/v1";
 // export const mverseUrl = "http://localhost:4000/v1";
