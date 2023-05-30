@@ -48,7 +48,7 @@ export default function Login() {
             style={{ position: "fixed", bottom: "0px; z-index: 100" }}
             role="alert"
           >
-            <p class="d-inline">{error}</p>
+            <p className="d-inline">{error}</p>
           </div>
         ) : null}
 

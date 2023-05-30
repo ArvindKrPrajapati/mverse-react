@@ -31,6 +31,7 @@ export default function Play({ tv }) {
   const [loading, setLoading] = useState(true);
 
   const _init = async () => {
+    console.log("plat");
     try {
       var _id = params?.id;
       setLoading(true);
@@ -81,20 +82,25 @@ export default function Play({ tv }) {
         ...styles.carouselImg,
       }}
     >
-      <Header tv={tv} />
+      <div className="d-none d-md-block">
+        <Header tv={tv} />
+      </div>
       <main className="inside-main">
-        <div className="d-none">
-          <Player data={data} tv={tv} season={season} episode={episode} />
-        </div>
         <div className="d-flex p-3">
           <div className="d-none d-md-block">
-            <img
-              src={imageUrl + "w300" + data.poster_path}
-              className="poster_img"
-              alt="img"
-            />
+            <div className="poster_img_div">
+              <img
+                src={imageUrl + "w300" + data.poster_path}
+                className="poster_img"
+                alt="img"
+              />
+            </div>
           </div>
           <div className="details">
+            <div className="player-content">
+              <Player data={data} tv={tv} season={season} episode={episode} />
+            </div>
+            <div className="extra"></div>
             <b className="title d-block">{data.title || data.name}</b>
             <b className="text-muted">
               {data.release_date?.split("-")[0] ||

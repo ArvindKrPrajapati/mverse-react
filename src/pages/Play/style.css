@@ -1,33 +1,50 @@
 .main {
-    position: fixed;
-    width: 100%;
-    overflow: auto;
+  position: fixed;
+  width: 100%;
+  overflow: auto;
 }
 
 .inside-main {
-    padding: 80px 3vw;
+  padding: 80px 3vw;
 }
 
 .poster_img {
-    width: 16vw;
-    aspect-ratio: 2/3;
-    border-radius: 5px;
-    position: sticky;
-    top: 20%;
+  width: 16vw;
+  aspect-ratio: 2/3;
+  border-radius: 5px;
+  margin-left: 10%;
+}
+.poster_img_div {
+  width: 24vw;
+  position: sticky;
+  top: 20%;
 }
 
 .title {
-    color: white;
-    font-size: 4vw;
+  color: white;
+  font-size: 4vw;
 }
 
 .details {
-    padding-left: 15px;
-    overflow: auto;
+  padding-left: 15px;
+  overflow: auto;
 }
 
-@media screen and (max-width:600px) {
-    .details {
-        padding-left: 0;
-    }
+@media screen and (max-width: 600px) {
+  .details {
+    padding-left: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .player-content {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    left: 0;
+    z-index: 99999;
+  }
+  .extra {
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
 }
