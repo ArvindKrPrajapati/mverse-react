@@ -17,20 +17,3 @@ export const mversePost = async (url, data) => {
   const res = await fetch(mverseUrl + url, options);
   return res.json();
 };
-
-export const mverseGet = async (url) => {
-  let options = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-  if (mverseToken()) {
-    options["headers"] = {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + mverseToken(),
-    };
-  }
-  const res = await fetch(mverseUrl + url, options);
-  return res.json();
-};

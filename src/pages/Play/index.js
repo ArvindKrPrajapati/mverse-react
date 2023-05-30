@@ -19,8 +19,6 @@ import Player from "../../components/Player";
 import Footer from "../../components/Footer";
 import { BsChevronRight } from "react-icons/bs";
 import BeautyStars from "beauty-stars";
-import { mverseGet } from "../../utils/mverse-api.service";
-import JWPlayer from "@jwplayer/jwplayer-react";
 
 export default function Play({ tv }) {
   const location = useLocation();
@@ -34,29 +32,10 @@ export default function Play({ tv }) {
   const [loading, setLoading] = useState(true);
   const [star, setStar] = useState(0);
 
-  const [isMverse, setIsMverse] = useState(true);
-  const [sources, setSources] = useState([]);
-  const [mverseLoading, setMverseLoading] = useState(true);
   const _init = async () => {
     try {
       var _id = params?.id;
       setLoading(true);
-      setMverseLoading(true);
-      const mverseRes = await mverseGet("/mverse/details/" + _id);
-      if (mverseRes.success) {
-        setMverseLoading(false);
-        setSources(
-          mverseRes.data.map((item) => {
-            return {
-              file: item.video[0].href,
-              label: item.video[0].resolution + "p - " + item.video[0].language,
-              type: "video/mp4",
-            };
-          })
-        );
-      } else {
-        console.log(mverseRes);
-      }
       setId(_id);
       setSeason(params?.s);
       setEpisode(params?.e);
@@ -106,79 +85,8 @@ export default function Play({ tv }) {
     >
       <Header tv={tv} />
       <main className="inside-main">
-        <div>
-          {isMverse ? (
-            <div>
-              <div
-                style={{
-                  background: "black",
-                  width: "100%",
-                  aspectRatio: "16/9",
-                }}
-              >
-                {!mverseLoading && sources.length ? (
-                  <JWPlayer
-                    sources={sources}
-                    library="https://cdn.jwplayer.com/libraries/5TLRxR5E.js"
-                  />
-                ) : null}
-                {!mverseLoading && sources.length === 0 ? (
-                  <div className="d-flex h-100 justify-content-center align-items-center text-white">
-                    Not Found
-                  </div>
-                ) : null}
-              </div>
-              <small
-                className="d-block text-warning"
-                style={{ textAlign: "center", marginTop: "8px" }}
-              >
-                If current server do not work try other server below
-              </small>
-              <div
-                className="p-2"
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  flexWrap: "wrap",
-                }}
-              >
-                <button
-                  onClick={() => {
-                    setIsMverse(true);
-                  }}
-                  className="btn text-white m-1"
-                  style={
-                    isMverse
-                      ? { backgroundColor: "var(--tertiory)" }
-                      : { backgroundColor: "var(--secondary)" }
-                  }
-                >
-                  Mverse
-                </button>
-                <button
-                  onClick={() => {
-                    setIsMverse(false);
-                  }}
-                  className="btn text-white m-1"
-                  style={
-                    !isMverse
-                      ? { backgroundColor: "var(--tertiory)" }
-                      : { backgroundColor: "var(--secondary)" }
-                  }
-                >
-                  Other server
-                </button>
-              </div>
-            </div>
-          ) : (
-            <Player
-              data={data}
-              tv={tv}
-              season={season}
-              episode={episode}
-              setIsMverse={setIsMverse}
-            />
-          )}
+        <div className="d-none">
+          <Player data={data} tv={tv} season={season} episode={episode} />
         </div>
         <div className="d-flex p-3">
           <div className="d-none d-md-block">
