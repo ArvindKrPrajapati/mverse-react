@@ -18,7 +18,6 @@ import Loading from "../../components/Loading";
 import Player from "../../components/Player";
 import Footer from "../../components/Footer";
 import { BsChevronRight } from "react-icons/bs";
-import BeautyStars from "beauty-stars";
 
 export default function Play({ tv }) {
   const location = useLocation();
@@ -30,7 +29,6 @@ export default function Play({ tv }) {
   const [recomendation, setRecomendation] = useState();
   const [similar, setSimilar] = useState();
   const [loading, setLoading] = useState(true);
-  const [star, setStar] = useState(0);
 
   const _init = async () => {
     try {
@@ -90,21 +88,11 @@ export default function Play({ tv }) {
         </div>
         <div className="d-flex p-3">
           <div className="d-none d-md-block">
-            <div style={{ position: "sticky", top: "20%" }}>
-              <img
-                src={imageUrl + "w300" + data.poster_path}
-                className="poster_img"
-                alt="img"
-              />
-              <br />
-              <div className="p-2">
-                <b className="text-white">Rate this</b>
-                <BeautyStars
-                  value={star}
-                  onChange={(value) => setStar(value)}
-                />
-              </div>
-            </div>
+            <img
+              src={imageUrl + "w300" + data.poster_path}
+              className="poster_img"
+              alt="img"
+            />
           </div>
           <div className="details">
             <b className="title d-block">{data.title || data.name}</b>
